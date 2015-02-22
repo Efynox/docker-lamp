@@ -17,6 +17,8 @@ ENV MAX_UPLOAD "50M"
 RUN apt-get -y install apache2
 RUN apt-get -y install php5 php5-gd php5-mysql
 
+# Remove default site
+RUN a2dissite 000-default
 
 # Installation de phpMyAdmin
 RUN apt-get -y install wget
@@ -24,21 +26,30 @@ RUN wget http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/${PHPMYA
 RUN tar -xvjf /phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.bz2 -C /
 RUN rm /phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.bz2
 RUN mv /phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages /var/www/phpmyadmin
+#RUN mkdir /var/www/phpmyadmin/config 
+#RUN chmod o+rw /var/www/phpmyadmin/config
+ADD ./conf/config.inc.php /var/www/phpmyadmin/config.inc.php
 
-#
-VOLUME /var/www/app
-
-RUN a2dissite 000-default
-
+# Add phpMyAdmin to Apache2
 ADD ./sites/phpmyadmin.conf /etc/apache2/sites-available/phpmyadmin.conf
 RUN a2ensite phpmyadmin
 
+# Mount app folder
+VOLUME /var/www/app
+
+# Add app to Apache2 
 ADD ./sites/app.conf /etc/apache2/sites-available/app.conf
 RUN a2ensite app
 
+# Enable Mod Rewrite
+RUN a2enmod rewrite
+
+#
 EXPOSE 80
 
+# Copy run script
 ADD ./run.sh /root/run.sh
 RUN chmod +x /root/run.sh
 
 CMD ["./root/run.sh"]
+

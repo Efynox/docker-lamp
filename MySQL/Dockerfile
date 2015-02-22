@@ -15,6 +15,9 @@ RUN echo "mysql-server mysql-server/root_password_again password root" | debconf
 # Install MySQL
 RUN apt-get install -y mysql-server
 
+# Copy config
+ADD ./conf/my.cnf /etc/mysql/my.cnf
+
 # Add run script
 ADD ./run.sh /root/run.sh
 RUN chmod +x /root/run.sh
