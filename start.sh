@@ -9,6 +9,7 @@ echo "	Container ID:"
 docker run --name=ef_mysql -d -v $path:/var/lib/mysql efynox/mysql
 echo "	MySQL docker started on port 3306"
 
+docker logs ef_mysql
 echo " "
 
 # Start Apache2 & PHP

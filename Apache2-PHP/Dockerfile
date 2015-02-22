@@ -44,6 +44,9 @@ RUN a2ensite app
 # Enable Mod Rewrite
 RUN a2enmod rewrite
 
+# Copy PHP config file
+ADD ./conf/php.ini /etc/php5/apache2/php.ini
+
 #
 EXPOSE 80
 
