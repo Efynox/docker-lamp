@@ -17,13 +17,8 @@ ENV MAX_UPLOAD "50M"
 RUN apt-get -y install apache2
 RUN apt-get -y install php5 php5-gd php5-mysql
 
-# Add our config files
-#ADD conf/nginx.conf /usr/local/nginx/conf/nginx.conf 
-#ADD conf/php.ini /etc/php5/fpm/php.ini
-
 
 # Installation de phpMyAdmin
-#RUN adduser phpmyadmin
 RUN apt-get -y install wget
 RUN wget http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.bz2
 RUN tar -xvjf /phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.bz2 -C /
@@ -31,7 +26,6 @@ RUN rm /phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.bz2
 RUN mv /phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages /var/www/phpmyadmin
 
 #
-#RUN adduser app
 VOLUME /var/www/app
 
 RUN a2dissite 000-default

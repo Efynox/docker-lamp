@@ -2,10 +2,10 @@
 Dockers Web
 
 ### Build images
-	```./build.sh```
+	./build.sh
 
 ### Run dockers
-	```./start.sh {ABSOLUTE PATH TO YOUR WEB FOLDER}```
+	./start.sh {ABSOLUTE PATH TO YOUR WEB FOLDER}
 
 ### Stop docker
-	```./stop.sh```
+	./stop.sh
