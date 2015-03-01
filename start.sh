@@ -10,6 +10,8 @@ Usage:
 	-n NAME		set the name
 	-p PATH		set the absolute path to web files folder
 	-f FOLDER	set the web start folder in the web files folder
+	-d DB_PATH  set the db path
+	-w PORT 	set the web port
 EOF
 }
 
@@ -18,9 +20,10 @@ name="EF"
 web_path=""
 web_folder="web"
 data_path=""
+port="80"
 
 OPTIND=1
-while getopts "hn:p:f:d:" opt; do
+while getopts "hn:p:f:d:w:" opt; do
 	case $opt in
 		h)
 			show_help
@@ -37,6 +40,9 @@ while getopts "hn:p:f:d:" opt; do
 			;;
 		d)
 			data_path=$OPTARG
+			;;
+		w)
+			port=$OPTARG
 			;;
 		\?) 
 			echo "Invalid option: $OPTARG"
@@ -70,13 +76,13 @@ dockerApache="${name}_apache"
 # Start MySQL
 echo "Starting MySQL docker..."
 docker run --name=$dockerMysql -d -v $data_path:/var/lib/mysql efynox/mysql
-echo "MySQL docker started on port 3306"
+echo "MySQL docker started"
 echo ""
 
 # Start Apache2 & PHP
 echo "Starting Apache2-PHP docker..."
-docker run --name=$dockerApache -d -v $web_path:/var/www/app -p 80:80 --link $dockerMysql:db efynox/apache2-php $web_folder
-echo "Apache2-PHP docker started on port 80"
+docker run --name=$dockerApache -d -v $web_path:/var/www/app -p $port:80 --link $dockerMysql:db efynox/apache2-php $web_folder
+echo "Apache2-PHP docker started on port $port"
 echo ""
 
 echo "Waiting database initialization..."
