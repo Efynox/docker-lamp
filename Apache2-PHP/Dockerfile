@@ -54,5 +54,5 @@ EXPOSE 80
 ADD ./run.sh /root/run.sh
 RUN chmod +x /root/run.sh
 
-CMD ["./root/run.sh"]
+ENTRYPOINT ["./root/run.sh"]
 
