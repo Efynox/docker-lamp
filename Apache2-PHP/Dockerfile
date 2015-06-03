@@ -10,12 +10,12 @@ ENV PHPMYADMIN_PASSWORD password
 ENV MAX_UPLOAD "50M"
 
 # Get some security updates
-#RUN apt-get update
+RUN apt-get update
 #RUN apt-get -y upgrade
 
 # Install Apache2 and php5
 RUN apt-get -y install apache2
-RUN apt-get -y install php5 php5-gd php5-mysql
+RUN apt-get -y install php5 php5-gd php5-mysql php5-mcrypt
 
 # Remove default site
 RUN a2dissite 000-default
@@ -46,6 +46,9 @@ RUN a2enmod rewrite
 
 # Copy PHP config file
 ADD ./conf/php.ini /etc/php5/apache2/php.ini
+
+# Active modes php
+RUN php5enmod mcrypt
 
 #
 EXPOSE 80
