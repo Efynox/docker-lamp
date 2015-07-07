@@ -4,7 +4,7 @@
 
 To build
 ```
-sudo docker build -t efynox/phpmyadmin .
+sudo docker build --rm=true -t efynox/phpmyadmin .
 ```
 
 To run it on port 8081
