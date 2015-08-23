@@ -2,7 +2,7 @@
 A list of useful docker
 
 ## Apache, PHP
-* [efynoxApache2-PHP](Apache2-PHP/README.md)
+* [efynoxApache2-PHP](Apache2-PHP/)
 
 
 ## MySQL 
@@ -22,11 +22,11 @@ docker exec -it some-mysql bash
 ```
 
 ### Others
-* [efynox/MySQL](MySQL/README.md)
+* [efynox/MySQL](MySQL/)
 
 
 ## phpMyAdmin
-* [efynox/phpMyAdmin](phpMyAdmin/README.md)
+* [efynox/phpMyAdmin](phpMyAdmin/)
 
 ## OpenVPN
 * [jpetazzo/dockvp git repository](https://github.com/jpetazzo/dockvpn)
