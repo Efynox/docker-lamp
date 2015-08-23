@@ -26,7 +26,7 @@ docker exec -it some-mysql bash
 
 
 ## phpMyAdmin
-* [efynox/MySQL](phpMyAdmin/README.md)
+* [efynox/phpMyAdmin](phpMyAdmin/README.md)
 
 ## OpenVPN
 * [jpetazzo/dockvp git repository](https://github.com/jpetazzo/dockvpn)
