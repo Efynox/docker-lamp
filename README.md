@@ -1,19 +1,32 @@
 # dockers
 A list of useful docker
 
-## Images
-* [MySQL](MySQL/README.md)
-* [phpMyAdmin](phpMyAdmin/README.md)
-* [Apache2-PHP](Apache2-PHP/README.md)
-* [OpenVPN](OpenVPN/README.md)
+## Apache, PHP
+* [efynoxApache2-PHP](Apache2-PHP/README.md)
 
 
-## Script
-#### Build images
-	./build.sh
+## MySQL 
 
-#### Run dockers
-	./start.sh {ABSOLUTE PATH TO YOUR WEB FOLDER}
+### Offical MySQL docker image
 
-#### Stop docker
-	./stop.sh
+[Offical documentation](https://registry.hub.docker.com/_/mysql/)
+
+Use the following command to run it
+```
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+```
+
+Use the following command to get a bash for the running docker
+```
+docker exec -it some-mysql bash
+```
+
+### Others
+* [efynox/MySQL](MySQL/README.md)
+
+
+## phpMyAdmin
+* [efynox/MySQL](phpMyAdmin/README.md)
+
+## OpenVPN
+* [jpetazzo/dockvp git repository](https://github.com/jpetazzo/dockvpn)
