@@ -1,10 +1,9 @@
-FROM ubuntu
-#FROM debian
+FROM debian:stretch-slim
 
 MAINTAINER Efynox <efynox@protonmail.com>
 
 RUN apt-get update \
- && apt-get install -y git-core php wget xz-utils \
+ && apt-get install -y git-core php php7.0-mbstring php7.0-dom php7.0-zip wget xz-utils \
  &&	wget https://nodejs.org/dist/v6.9.4/node-v6.9.4-linux-x64.tar.xz \
  &&	tar -C /usr/local --strip-components 1 -xJf node-v6.9.4-linux-x64.tar.xz \
  && rm node-v6.9.4-linux-x64.tar.xz \
