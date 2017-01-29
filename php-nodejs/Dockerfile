@@ -1,4 +1,5 @@
-FROM debian
+FROM ubuntu
+#FROM debian
 
 MAINTAINER Efynox <efynox@protonmail.com>
 
