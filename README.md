@@ -6,10 +6,7 @@ A list of useful docker
 
 
 ## MySQL 
-
-### Offical MySQL docker image
-
-[Offical documentation](https://registry.hub.docker.com/_/mysql/)
+### Offical image
 
 Use the following command to run it
 ```
@@ -21,16 +18,25 @@ Use the following command to get a bash for the running docker
 docker exec -it some-mysql bash
 ```
 
+[Offical documentation](https://registry.hub.docker.com/_/mysql/)
+
 ### Others
 * [efynox/MySQL](MySQL/)
 
 
 ## phpMyAdmin
-### Official
-[phpmyadmin/docker](https://github.com/phpmyadmin/docker)
-
-### Others
+* [phpmyadmin/docker](https://github.com/phpmyadmin/docker)
 * [efynox/phpMyAdmin](phpMyAdmin/)
+
 
 ## OpenVPN
 * [jpetazzo/dockvp git repository](https://github.com/jpetazzo/dockvpn)
+
+
+## PHP & NodeJs
+* [efynox/php-nodejs](https://hub.docker.com/r/efynox/php-nodejs/)
+
+
+## Cozy
+* [efynox/docker-cozy](https://hub.docker.com/r/efynox/docker-cozy/)
+
