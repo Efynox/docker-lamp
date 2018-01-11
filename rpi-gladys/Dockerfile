@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk add --no-cache git nodejs mysql python make g++
+RUN apk add --no-cache git nodejs mysql mysql-client python make g++
 
 RUN cd \
  && git clone https://github.com/GladysProject/gladys gladys \
