@@ -17,4 +17,4 @@ COPY .env /root/gladys/.env
 
 EXPOSE 8080
 
-CMD ["node" ,"app.js"]v
+CMD ["node" ,"app.js"]
