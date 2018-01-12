@@ -9,10 +9,10 @@ RUN cd \
  && npm install -g grunt-cli \
  && grunt buildProd 
 
-RUN /usr/bin/mysql_install_db --user=mysql \
- && /usr/bin/mysqld_safe --datadir='/var/lib/mysql' \
- && /usr/bin/mysqladmin -u root password 'mypassword' \
- && mysql -u root -p mypassword -e "CREATE DATABASE gladys ;" 
+RUN /usr/bin/mysql_install_db --user=mysql 
+RUN /usr/bin/mysqld_safe --datadir='/var/lib/mysql' 
+RUN /usr/bin/mysqladmin -u root password 'mypassword' 
+RUN mysql -u root -p mypassword -e "CREATE DATABASE gladys ;" 
 
 RUN node init.js
 
