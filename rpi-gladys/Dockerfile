@@ -8,17 +8,20 @@ RUN cd \
  && npm install \
  && npm install -g grunt-cli \
  && grunt buildProd 
- 
-RUN /usr/bin/mysql_install_db --user=mysql 
-RUN /usr/bin/mysqld_safe --datadir='/var/lib/mysql' &
-RUN sleep 60 \
- && /usr/bin/mysqladmin -u root password 'mypassword' 
-RUN mysql --user=root --password=mypassword -e "CREATE DATABASE gladys ;" 
 
 COPY .env /root/gladys/.env 
 
-RUN node init.js
+WORKDIR /root/gladys
+ 
+RUN /usr/bin/mysql_install_db --user=mysql 
+RUN /usr/bin/mysqld_safe --datadir='/var/lib/mysql' & sleep 20 \
+ && /usr/bin/mysqladmin -u root password 'root'  \
+ && mysql --user=root --password=root -e "CREATE DATABASE gladys ;" \
+ && node init.js
 
 EXPOSE 8080
 
-CMD ["node" ,"app.js"]
+COPY run.sh /root/gladys/run.sh
+RUN chmod +x run.sh
+
+CMD ["/root/gladys/run.sh"]
