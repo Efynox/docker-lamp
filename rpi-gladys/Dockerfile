@@ -12,7 +12,7 @@ RUN cd \
 RUN /usr/bin/mysql_install_db --user=mysql \
 RUN /usr/bin/mysqld_safe --datadir='/var/lib/mysql' &
 RUN sleep 20 \
-    /usr/bin/mysqladmin -u root password 'mypassword' 
+ && /usr/bin/mysqladmin -u root password 'mypassword' 
 RUN mysql --user=root --password=mypassword -e "CREATE DATABASE gladys ;" 
 
 COPY .env /root/gladys/.env 
