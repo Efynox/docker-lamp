@@ -9,7 +9,7 @@ RUN cd \
  && npm install -g grunt-cli \
  && grunt buildProd 
  
-RUN /usr/bin/mysql_install_db --user=mysql \
+RUN /usr/bin/mysql_install_db --user=mysql 
 RUN /usr/bin/mysqld_safe --datadir='/var/lib/mysql' &
 RUN sleep 20 \
  && /usr/bin/mysqladmin -u root password 'mypassword' 
