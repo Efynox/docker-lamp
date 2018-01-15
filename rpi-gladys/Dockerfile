@@ -1,4 +1,4 @@
-FROM alpine
+FROM arm32v6/alpine
 
 RUN apk add --no-cache git nodejs mysql mysql-client python make g++
 
