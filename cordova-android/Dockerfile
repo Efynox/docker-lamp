@@ -12,7 +12,7 @@ ENV ANDROID_EXTRAS extra-android-m2repository,extra-android-support,extra-google
 ENV PATH ${PATH}:${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools
 
 RUN mkdir -p /opt/android-sdk-linux && cd /opt
-RUN wget -q https://dl.google.com/android/repository/sdk-tools-linux-${SDK_BUILD_VERSION}.zip -O android-sdk-tools.zip
+RUN wget -q https://dl.google.com/android/repository/sdk-tools-linux-${SDK_BUILD}.zip -O android-sdk-tools.zip
 RUN echo "${SDK_CHECKSUM}  android-sdk-tools.zip" | sha256sum -cs
 RUN unzip -q android-sdk-tools.zip -d ${ANDROID_SDK_ROOT}
 RUN rm -f android-sdk-tools.zip
