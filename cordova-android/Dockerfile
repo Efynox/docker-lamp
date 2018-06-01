@@ -16,7 +16,7 @@ RUN wget -q https://dl.google.com/android/repository/sdk-tools-linux-${SDK_BUILD
 RUN echo "${SDK_CHECKSUM}  android-sdk-tools.zip" | sha256sum -cs
 RUN unzip -q android-sdk-tools.zip -d ${ANDROID_SDK_ROOT}
 RUN rm -f android-sdk-tools.zip
-RUN ls ${ANDROID_SDK_ROOT}/tools
+RUN cd ${ANDROID_SDK_ROOT}/tools
 RUN echo y | android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_EXTRAS},${API_LEVELS},${BUILD_TOOLS_VERSIONS} --no-https
 
 RUN apk add --no-cache nodejs nodejs-npm
