@@ -1,5 +1,7 @@
 FROM gradle:jdk-alpine
 
+USER root
+
 # Android SDK
 ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
 ENV SDK_BUILD 3859397
