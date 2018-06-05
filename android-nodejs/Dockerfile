@@ -1,4 +1,4 @@
-FROM openjdk:jdk-alpine
+FROM gradle:jdk-alpine
 
 # Android SDK
 ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
