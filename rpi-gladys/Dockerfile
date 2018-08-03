@@ -3,7 +3,7 @@ FROM arm32v6/alpine
 RUN apk add --no-cache git nodejs mysql mysql-client python make g++
 
 RUN cd \
- && git clone https://github.com/GladysProject/gladys gladys \
+ && git clone --single-branch -b 'v3.9.1' https://github.com/GladysProject/gladys gladys \
  && cd gladys \
  && npm install \
  && npm install -g grunt-cli \
