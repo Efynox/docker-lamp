@@ -7,5 +7,8 @@ RUN apk add --no-cache libxml2-dev libpng-dev libjpeg-turbo-dev freetype-dev \
 COPY create-cron.sh /root/create-cron.sh 
 RUN chmod +x /root/create-cron.sh && apk add --no-cache bash
 
+EXPOSE 9000
+
+RUN mkdir -p /app
 VOLUME ["/app"]
 WORKDIR /app
